@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujian Online - SMP MUDACIL</title>
 
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
+
+        header {
+            background: #1976d2;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 10px;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 85vh;
+            border-radius: 8px;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    UJIAN ONLINE SMP MUDACIL
+</header>
+
+<div class="container">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScHluljte8J0VgJCGjLWeI01teFTRfx6Lb_EqrHdFrKmuLbzA/viewform?embedded=true">
+        Memuat…
+    </iframe>
+</div>
+
+<script>
+// Nonaktifkan klik kanan
+document.addEventListener('contextmenu', function(e) {
+    alert('Klik kanan dinonaktifkan!');
+    e.preventDefault();
+});
+
+// Blok beberapa shortcut
+document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && ['c','v','u'].includes(e.key.toLowerCase())) {
+        alert('Aksi ini tidak diperbolehkan!');
+        e.preventDefault();
+    }
+
+    // Blok F12
+    if (e.key === "F12") {
+        alert("Developer tools dilarang!");
+        e.preventDefault();
+    }
+});
+
+// Deteksi pindah tab / aplikasi
+document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+        alert("Anda keluar dari halaman ujian! Halaman akan dimuat ulang.");
+        location.reload();
+    }
+});
+
+// Peringatan saat keluar halaman
+window.onbeforeunload = function() {
+    return "Jika keluar, jawaban Anda bisa hilang!";
+};
+</script>
+
+</body>
+</html>
